@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package authpb;
+
+service AuthService {
+    rpc CheckServerStatus(CheckServerStatusRequest) returns (CheckServerStatusResponse);
+
+    rpc RegisterAccount(RegisterAccountRequest) returns (RegisterAccountResponse);
+}
+message CheckServerStatusRequest{
+}
+
+message CheckServerStatusResponse{
+    string server_name = 1;
+    string host = 2;
+    string port = 3;
+    string time = 4;
+    string status = 5;
+}
+
+message RegisterAccountRequest {
+    string first_name = 1;
+    string last_name = 2;
+    string username = 3;
+    string email = 4;
+    string password = 5;
+    string confirm_password = 6;
+    bool company_terms = 7;
+    bool govt_terms = 8;
+}
+
+message RegisterAccountResponse{
+    string result = 1;
+    string status = 2;
+}
